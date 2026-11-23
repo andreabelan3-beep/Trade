@@ -1,0 +1,16 @@
+# Controllo automatico a ogni invio: tipi e build (mai sul database vero).
+name: Controllo
+on:
+  push:
+  pull_request:
+jobs:
+  app:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+      - name: Tipi
+        run: bunx tsc --noEmit -p .
+      - name: Build
+        run: bun run build

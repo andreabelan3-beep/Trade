@@ -1,0 +1,18 @@
+// Configurazione Cloudflare Workers di Trade. La build (nitro) la unisce a quella che genera
+// in .output/server/wrangler.json; `wrangler deploy` usa quella generata.
+// I segreti NON vanno qui: si inseriscono nel pannello Cloudflare (Settings → Variables and Secrets).
+{
+  "name": "trade",
+  // Valori pubblici (anche nel codice del browser).
+  "vars": {
+    "SUPABASE_URL": "https://zakosqwxfjhnsrcywcjr.supabase.co",
+    "SUPABASE_PUBLISHABLE_KEY": "sb_publishable_nax_OCQVRuydKJ0RWkqrvA_MKDUn8zs"
+  },
+  "preview_urls": true,
+  "previews": {
+    "vars": {
+      "SUPABASE_URL": "https://zakosqwxfjhnsrcywcjr.supabase.co",
+      "SUPABASE_PUBLISHABLE_KEY": "sb_publishable_nax_OCQVRuydKJ0RWkqrvA_MKDUn8zs"
+    }
+  }
+}
